@@ -1,0 +1,39 @@
+vector<char> easyTask(int n,string s,int q,vector<vector<string>> &qu){
+        // Code here
+        vector<char> v; 
+        for(int i=0;i<q;i++){
+            if(qu[i][0]=="1"){
+                int a = stoi(qu[i][1]);
+                s[a]=qu[i][2][0];
+            }
+            else if(qu[i][0]=="2"){
+                //string st="";
+                int sta = stoi(qu[i][1]);
+                int ed = stoi(qu[i][2]);
+                
+                vector<int> w(26,0);
+                for(int i= sta;i<=ed;i++){
+                    //st+=s[i];
+                    w[s[i]-'a']++;
+                }
+                //sort(st.begin(),st.end());
+                //int n =st.size();
+                
+                //int k =stoi(qu[i][3]);
+                
+                //v.push_back(st[n-k]);
+                
+                for(int i=25;i>=0;i--){
+                    if(w[i]!=0){
+                        k-=w[i];
+                        if(k<=0){
+                            v.push_back('a'+i);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        
+        return v;
+    }
