@@ -1,0 +1,40 @@
+vector<string> CamelCase(int N, vector<string> Dic, string p) {
+        // code here
+        vector<string> v;
+        vector<string> l;
+        
+        for(int i=0;i<N;i++){
+            string s ="";
+            for(auto x : Dic[i]){
+                if(x>=65 && x<=90){
+                    s+=x;
+                }
+            }
+            l.push_back(s);
+        }
+        
+        for(int i=0;i<N;i++){
+            if(l[i].length()<=p.length() && l[i]==p){
+                 v.push_back(Dic[i]);
+            }
+            else{
+                int m=0;
+                for(int j=0;j<p.length();j++){
+                    if(l[i][j]==p[j]){
+                        m++;
+                    }
+                    else{
+                        continue;
+                    }
+                }
+                if(m==p.length()){
+                    v.push_back(Dic[i]);
+                }
+            }
+        }
+        
+        if(v.size()==0){
+            v.push_back("-1");
+        }
+        return v;
+   }
