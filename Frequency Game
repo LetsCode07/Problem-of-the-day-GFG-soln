@@ -1,0 +1,21 @@
+int LargButMinFreq(int arr[], int n) {
+        map<int,int> m;
+        // Created a map to store the frequency 
+        for(int i=0;i<n;i++){
+            m[arr[i]]++;
+        }
+        
+        int mi = INT_MAX;
+        int ans=0;
+        //found the min frequency
+        for(auto x:m){
+            mi = min(mi,x.second);
+        }
+        //Found the largest element with min freq.
+        for(auto x : m){
+            if(x.second==mi){
+                ans = max(ans,x.first);
+            }
+        }
+        return ans;
+    }
