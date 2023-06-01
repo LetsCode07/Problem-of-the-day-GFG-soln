@@ -1,0 +1,9 @@
+long long int minOperations(int N) {
+        // Code here
+        long long int n = N/2;
+        
+        if(N%2==0)
+            return (n*n);
+            
+        return n*(n+1);
+    }
