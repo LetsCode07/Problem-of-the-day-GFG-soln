@@ -1,0 +1,59 @@
+class Solution
+{
+    public:
+    
+    void inorder(Node* root, vector<Node*> &v){
+        
+        if(root==NULL){
+            return;
+        }
+        inorder(root->left,v);
+        v.push_back(root);
+        inorder(root->right,v);
+    }
+    
+    void findPreSuc(Node* root, Node*& pre, Node*& suc, int k )
+    {
+        // Your code goes here
+        vector<Node*> v;
+        
+        inorder(root,v);
+        if(v[0]->key>k){
+            suc=v[0];
+            pre=NULL;
+            return;
+        }
+        if(v[v.size()-1]->key < k){
+            suc = NULL;
+            pre=v[v.size()-1];
+            return;
+        }
+        int a=-1,b=-1;
+        for(int i=0;i<v.size()-1;i++){
+            if(v[i]->key<k && v[i+1]->key>k){
+                // pre->key=v[i];
+                // suc->key=v[i+1];
+                a = i;
+                pre = v[a];
+                suc = v[a+1];
+                break;
+            }
+            if(v[i]->key == k){
+                if(i==0){
+                    pre = NULL;
+                    suc = v[i+1];
+                    break;
+                }  
+                
+                    pre = v[i-1];
+                    suc = v[i+1];
+                    break;
+            }
+        }
+        if(v[v.size()-1]->key == k){
+            pre = v[v.size()-2];
+            suc = NULL;
+            return;
+        }
+    }
+};
