@@ -1,0 +1,14 @@
+void update(int a[], int n, int u[], int k)
+    {
+        // Your code goes here
+        for(int i=0;i<n;i++){
+            a[i]=0;
+        }
+        
+        for(int i=0;i<k;i++){
+            a[u[i]-1]++;
+        }
+        for(int i=1;i<n;i++){
+            a[i]+=a[i-1];
+        }
+    }
