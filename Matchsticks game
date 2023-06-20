@@ -1,0 +1,8 @@
+int matchGame(long long N) {
+        // code here
+        int a = N%5;
+        if(a<=4 and a!=0){
+            return a;
+        }
+        return -1;
+    }
