@@ -1,0 +1,34 @@
+ bool lemonadeChange(int n, vector<int> &b) {
+        // code here
+        int p=0,q=0;
+        
+        for(int i=0;i<n;i++){
+            if(b[i]==5){
+                c+=5;
+                p++;
+            }
+            else if(b[i]==10){
+                if(p>0){
+                    p--;
+                    q++;
+                }
+                else{
+                    return false;
+                }
+            }
+            else if(b[i]==20){
+                if(p>0 and q>0){
+                    p--;
+                    q--;
+                }
+                else if(p>3){
+                    p-=3;
+                }
+                else{
+                    return false;
+                }
+            }
+            
+        }
+        
+        return true;
