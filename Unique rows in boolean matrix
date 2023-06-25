@@ -1,0 +1,19 @@
+vector<vector<int>> uniqueRow(int M[MAX][MAX],int row,int col)
+    {
+        //Your code here
+        vector<vector<int>> v;
+        map<vector<int> , int> m;
+        for(int i=0;i<row;i++){
+            vector<int> a;
+            for(int j=0;j<col;j++){
+                a.push_back(M[i][j]);
+            }
+            
+            if(!m[a]){
+                v.push_back(a);
+                m[a]++;
+            }
+        }
+        
+        return v;
+    }
