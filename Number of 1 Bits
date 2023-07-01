@@ -1,0 +1,12 @@
+int setBits(int N) {
+        // Write Your Code here
+        string s;
+        int ans=0;
+        while(N){
+            if(N%2){
+                ans++;
+            }
+            N=N/2;
+        }
+        return ans;
+    }
